@@ -1,0 +1,7 @@
+name: ConnectToYT
+main: matthbo.plugin.connecttoyt.ConnectToYT
+version: 0.1
+commands:
+    youtube:
+        description: Adds a message in the Stefan Help List
+        usage: /<command> <args>
