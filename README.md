@@ -3,7 +3,7 @@ ConnectToYT
 
 lets someone  yt url show in chat
 
-##Example Commands
+###Example Commands
 
-#/youtube [url]    | sets yt url for player
-#/youtube [player] | gets yt url from target
+#####/youtube [url]    | sets yt url for player
+#####/youtube [player] | gets yt url from target
