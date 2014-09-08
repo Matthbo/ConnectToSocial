@@ -8,7 +8,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ConnectToYT extends JavaPlugin{
 	
-	public static final Object pluginMSG = ChatColor.AQUA + "[ConnectToYT] " + ChatColor.RESET;
+	public static final Object pluginMSG = ChatColor.DARK_GREEN + "[ConnectToYT] " + ChatColor.RESET;
+	public static final Object pluginUsage = pluginMSG + "" + ChatColor.DARK_RED;
 	
 	@Override
 	public void onEnable() {
@@ -26,11 +27,13 @@ public class ConnectToYT extends JavaPlugin{
 		if(cmd.getName().equalsIgnoreCase("youtube")){
 			if(sender instanceof Player){
 				Player player = (Player)sender;
-				if(args.toString().contains(" set ")){
-					player.sendMessage("It Works!");
+				if(args.length > 0 && args[0].equalsIgnoreCase("set")){
+					//TODO if /command player
+					player.sendMessage(pluginUsage + "Usage: /<command> set [url]");
 					return true;
 				}else{
-					player.sendMessage("nope!");
+					player.sendMessage(pluginUsage + "Usage: /<command> [playername]");
+					player.sendMessage(pluginUsage + "Usage: /<command> set [url]");
 					return true;
 				}
 			}else{
