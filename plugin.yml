@@ -4,4 +4,4 @@ version: 0.1
 commands:
     youtube:
         description: Adds a message in the Stefan Help List
-        usage: /<command> <args>
+        usage: /<command> [player] | /<command> set [url]
