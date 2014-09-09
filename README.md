@@ -1,9 +1,9 @@
-ConnectToYT
+ConnectToSocial
 ===========
 
 lets someone  yt url show in chat
 
 ###Example Commands
 
-#####/youtube [url]    | sets yt url for player
-#####/youtube [player] | gets yt url from target
+#####/social youtube [url]    | sets yt url for player
+#####/social youtube [player] | gets yt url from target
