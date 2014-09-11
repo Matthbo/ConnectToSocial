@@ -129,6 +129,8 @@ public class ConnectToSocial extends JavaPlugin{
 					player.sendMessage(pluginUsage + "Usage: /<command> [playername]");
 					player.sendMessage(pluginUsage + "Usage: /<command> set [media] [url]");
 					player.sendMessage(pluginUsage + "Usage: /<command> reset");
+					player.sendMessage(pluginMSG + "---[Media]---");
+					player.sendMessage(pluginMSG + "" + ChatColor.BLUE + "youtube, twitch, twitter, facebook, skype");
 					return true;
 				}
 			}else sender.sendMessage(pluginUsage + "Player Command Only!"); return true;
