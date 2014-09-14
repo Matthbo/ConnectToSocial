@@ -125,12 +125,20 @@ public class ConnectToSocial extends JavaPlugin{
 					player.sendMessage(pluginMSG + "Skype Name is set to: " + ChatColor.BLUE + args[2]);
 					
 					return true;
+				}
+				
+				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("instagram")){
+					
+					InstaCMD(args[2], player.getName());
+					player.sendMessage(pluginMSG + "Instagram URL is set to: " + ChatColor.BLUE + args[2]);
+					
+					return true;
 				}else{
 					player.sendMessage(pluginUsage + "Usage: /<command> [playername]");
 					player.sendMessage(pluginUsage + "Usage: /<command> set [media] [url]");
 					player.sendMessage(pluginUsage + "Usage: /<command> reset");
 					player.sendMessage(pluginMSG + "---[Media]---");
-					player.sendMessage(pluginMSG + "" + ChatColor.BLUE + "youtube, twitch, twitter, facebook, skype");
+					player.sendMessage(pluginMSG + "" + ChatColor.BLUE + "youtube, twitch, twitter, facebook, skype, instagram");
 					return true;
 				}
 			}else sender.sendMessage(pluginUsage + "Player Command Only!"); return true;
@@ -163,7 +171,7 @@ public class ConnectToSocial extends JavaPlugin{
 			if(!saveTo.exists()) saveTo.createNewFile();
 			FileWriter fw = new FileWriter(saveTo, true);
 			PrintWriter pw = new PrintWriter(fw);
-			pw.println("Twitch:" + url);
+			pw.println("Twitch: " + url);
 			pw.flush();
 			pw.close();
 		}catch(IOException e){e.printStackTrace();}
@@ -209,6 +217,21 @@ public class ConnectToSocial extends JavaPlugin{
 			FileWriter fw = new FileWriter(saveTo, true);
 			PrintWriter pw = new PrintWriter(fw);
 			pw.println("Skype: "  + url);
+			pw.flush();
+			pw.close();
+		}catch(IOException e){e.printStackTrace();}
+	}
+	
+	public void InstaCMD(String url, String playerName){
+		try{
+			File dataFolder = getDataFolder();
+			if(!dataFolder.exists()) dataFolder.mkdir();
+		
+			File saveTo = new File(dataFolder, playerName + ".dat");
+			if(!saveTo.exists()) saveTo.createNewFile();
+			FileWriter fw = new FileWriter(saveTo, true);
+			PrintWriter pw = new PrintWriter(fw);
+			pw.println("Instagram: "  + url);
 			pw.flush();
 			pw.close();
 		}catch(IOException e){e.printStackTrace();}
