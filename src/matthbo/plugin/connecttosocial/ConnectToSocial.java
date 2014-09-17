@@ -85,7 +85,7 @@ public class ConnectToSocial extends JavaPlugin{
 				/*Youtube*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("youtube")){
 					
-					YoutubeCMD(args[2], player.getName());
+					MediaCMD(args[2], player.getName(), "youtube");
 					player.sendMessage(pluginMSG + "Youtube URL is set to: " + ChatColor.BLUE + args[2]);
 					
 					return true;
@@ -94,7 +94,7 @@ public class ConnectToSocial extends JavaPlugin{
 				/*Twitch*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("twitch")){
 					
-					TwitchCMD(args[2], player.getName());
+					MediaCMD(args[2], player.getName(), "twitch");
 					player.sendMessage(pluginMSG + "Twitch URL is set to: " + ChatColor.BLUE + args[2]);
 					
 					return true;
@@ -103,7 +103,7 @@ public class ConnectToSocial extends JavaPlugin{
 				/*twitter*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("twitter")){
 					
-					TwitterCMD(args[2], player.getName());
+					MediaCMD(args[2], player.getName(), "twitter");
 					player.sendMessage(pluginMSG + "Twitter URL is set to: " + ChatColor.BLUE + args[2]);
 					
 					return true;
@@ -112,7 +112,7 @@ public class ConnectToSocial extends JavaPlugin{
 				/*Facebook*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("facebook")){
 					
-					FacebookCMD(args[2], player.getName());
+					MediaCMD(args[2], player.getName(), "facebook");
 					player.sendMessage(pluginMSG + "Facebook URL is set to: " + ChatColor.BLUE + args[2]);
 					
 					return true;
@@ -121,15 +121,16 @@ public class ConnectToSocial extends JavaPlugin{
 				/*Skype*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("skype")){
 					
-					SkypeCMD(args[2], player.getName());
+					MediaCMD(args[2], player.getName(), "skype");
 					player.sendMessage(pluginMSG + "Skype Name is set to: " + ChatColor.BLUE + args[2]);
 					
 					return true;
 				}
 				
+				/*Instagram*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("instagram")){
 					
-					InstaCMD(args[2], player.getName());
+					MediaCMD(args[2], player.getName(), "instagram");
 					player.sendMessage(pluginMSG + "Instagram URL is set to: " + ChatColor.BLUE + args[2]);
 					
 					return true;
@@ -147,7 +148,7 @@ public class ConnectToSocial extends JavaPlugin{
 		return false;
 	}
 	
-	public void YoutubeCMD(String url, String playerName){
+	public void MediaCMD(String url, String playerName, String medium){
 		try{
 			File dataFolder = getDataFolder();
 			if(!dataFolder.exists()) dataFolder.mkdir();
@@ -156,85 +157,17 @@ public class ConnectToSocial extends JavaPlugin{
 			if(!saveTo.exists()) saveTo.createNewFile();
 			FileWriter fw = new FileWriter(saveTo, true);
 			PrintWriter pw = new PrintWriter(fw);
-			pw.println("Youtube: " + url);
+			switch(medium){
+			case "youtube": pw.println("Youtube: " + url); break;
+			case "twitch": pw.println("Twitch: " + url); break;
+			case "twitter": pw.println("Twitter: " + url); break;
+			case "facebook": pw.println("Facebook: " + url); break;
+			case "skype": pw.println("Skype: " + url); break;
+			case "instagram": pw.println("Instagram: " + url); break;
+			}
 			pw.flush();
 			pw.close();
 		}catch(IOException e){e.printStackTrace();}
 	}
 	
-	public void TwitchCMD(String url, String playerName){
-		try{
-			File dataFolder = getDataFolder();
-			if(!dataFolder.exists()) dataFolder.mkdir();
-		
-			File saveTo = new File(dataFolder, playerName + ".dat");
-			if(!saveTo.exists()) saveTo.createNewFile();
-			FileWriter fw = new FileWriter(saveTo, true);
-			PrintWriter pw = new PrintWriter(fw);
-			pw.println("Twitch: " + url);
-			pw.flush();
-			pw.close();
-		}catch(IOException e){e.printStackTrace();}
-	}
-	
-	public void TwitterCMD(String url, String playerName){
-		try{
-			File dataFolder = getDataFolder();
-			if(!dataFolder.exists()) dataFolder.mkdir();
-		
-			File saveTo = new File(dataFolder, playerName + ".dat");
-			if(!saveTo.exists()) saveTo.createNewFile();
-			FileWriter fw = new FileWriter(saveTo, true);
-			PrintWriter pw = new PrintWriter(fw);
-			pw.println("Twitter: " + url);
-			pw.flush();
-			pw.close();
-		}catch(IOException e){e.printStackTrace();}
-	}
-	
-	public void FacebookCMD(String url, String playerName){
-		try{
-			File dataFolder = getDataFolder();
-			if(!dataFolder.exists()) dataFolder.mkdir();
-		
-			File saveTo = new File(dataFolder, playerName + ".dat");
-			if(!saveTo.exists()) saveTo.createNewFile();
-			FileWriter fw = new FileWriter(saveTo, true);
-			PrintWriter pw = new PrintWriter(fw);
-			pw.println("Facebook: " + url);
-			pw.flush();
-			pw.close();
-		}catch(IOException e){e.printStackTrace();}
-	}
-	
-	public void SkypeCMD(String url, String playerName){
-		try{
-			File dataFolder = getDataFolder();
-			if(!dataFolder.exists()) dataFolder.mkdir();
-		
-			File saveTo = new File(dataFolder, playerName + ".dat");
-			if(!saveTo.exists()) saveTo.createNewFile();
-			FileWriter fw = new FileWriter(saveTo, true);
-			PrintWriter pw = new PrintWriter(fw);
-			pw.println("Skype: "  + url);
-			pw.flush();
-			pw.close();
-		}catch(IOException e){e.printStackTrace();}
-	}
-	
-	public void InstaCMD(String url, String playerName){
-		try{
-			File dataFolder = getDataFolder();
-			if(!dataFolder.exists()) dataFolder.mkdir();
-		
-			File saveTo = new File(dataFolder, playerName + ".dat");
-			if(!saveTo.exists()) saveTo.createNewFile();
-			FileWriter fw = new FileWriter(saveTo, true);
-			PrintWriter pw = new PrintWriter(fw);
-			pw.println("Instagram: "  + url);
-			pw.flush();
-			pw.close();
-		}catch(IOException e){e.printStackTrace();}
-	}
-
 }
