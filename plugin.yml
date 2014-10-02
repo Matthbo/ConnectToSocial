@@ -1,6 +1,6 @@
 name: ConnectToSocial
 main: matthbo.plugin.connecttosocial.ConnectToSocial
-version: 1.4
+version: 1.5
 commands:
     social:
         description: View someones SocialMedia via URLs

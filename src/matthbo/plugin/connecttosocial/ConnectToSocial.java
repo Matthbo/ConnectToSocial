@@ -85,37 +85,69 @@ public class ConnectToSocial extends JavaPlugin{
 				/*Youtube*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("youtube")){
 					
-					MediaCMD(args[2], player.getName(), "youtube");
-					player.sendMessage(pluginMSG + "Youtube URL is set to: " + ChatColor.BLUE + args[2]);
-					
-					return true;
+					if(args[2].startsWith("http://") || args[2].startsWith("https://")){
+						
+						MediaCMD(args[2], player.getName(), "youtube");
+						player.sendMessage(pluginMSG + "Youtube URL is set to: " + ChatColor.BLUE + args[2]);
+						
+						return true;
+					}else{
+						player.sendMessage(pluginUsage + "URL Is Not Valid!");
+						player.sendMessage(pluginUsage + "Example: " + ChatColor.BLUE + "http://google.com");
+						player.sendMessage(pluginUsage + "Example: " + ChatColor.BLUE + "https://google.com");
+						return true;
+					}
 				}
 				
 				/*Twitch*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("twitch")){
 					
-					MediaCMD(args[2], player.getName(), "twitch");
-					player.sendMessage(pluginMSG + "Twitch URL is set to: " + ChatColor.BLUE + args[2]);
-					
-					return true;
+					if(args[2].startsWith("http://") || args[2].startsWith("https://")){
+						
+						MediaCMD(args[2], player.getName(), "twitch");
+						player.sendMessage(pluginMSG + "Twitch URL is set to: " + ChatColor.BLUE + args[2]);
+						
+						return true;
+					}else{
+						player.sendMessage(pluginUsage + "URL Is Not Valid!");
+						player.sendMessage(pluginUsage + "Example: " + ChatColor.BLUE + "http://google.com");
+						player.sendMessage(pluginUsage + "Example: " + ChatColor.BLUE + "https://google.com");
+						return true;
+					}
 				}
 				
-				/*twitter*/
+				/*Twitter*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("twitter")){
 					
-					MediaCMD(args[2], player.getName(), "twitter");
-					player.sendMessage(pluginMSG + "Twitter URL is set to: " + ChatColor.BLUE + args[2]);
-					
-					return true;
+					if(args[2].startsWith("http://") || args[2].startsWith("https://")){
+						
+						MediaCMD(args[2], player.getName(), "twitter");
+						player.sendMessage(pluginMSG + "Twitter URL is set to: " + ChatColor.BLUE + args[2]);
+						
+						return true;
+					}else{
+						player.sendMessage(pluginUsage + "URL Is Not Valid!");
+						player.sendMessage(pluginUsage + "Example: " + ChatColor.BLUE + "http://google.com");
+						player.sendMessage(pluginUsage + "Example: " + ChatColor.BLUE + "https://google.com");
+						return true;
+					}
 				}
 				
 				/*Facebook*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("facebook")){
 					
-					MediaCMD(args[2], player.getName(), "facebook");
-					player.sendMessage(pluginMSG + "Facebook URL is set to: " + ChatColor.BLUE + args[2]);
-					
-					return true;
+					if(args[2].startsWith("http://") || args[2].startsWith("https://")){
+						
+						MediaCMD(args[2], player.getName(), "facebook");
+						player.sendMessage(pluginMSG + "Facebook URL is set to: " + ChatColor.BLUE + args[2]);
+						
+						return true;
+					}else{
+						player.sendMessage(pluginUsage + "URL Is Not Valid!");
+						player.sendMessage(pluginUsage + "Example: " + ChatColor.BLUE + "http://google.com");
+						player.sendMessage(pluginUsage + "Example: " + ChatColor.BLUE + "https://google.com");
+						return true;
+					}
 				}
 				
 				/*Skype*/
@@ -130,16 +162,50 @@ public class ConnectToSocial extends JavaPlugin{
 				/*Instagram*/
 				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("instagram")){
 					
-					MediaCMD(args[2], player.getName(), "instagram");
-					player.sendMessage(pluginMSG + "Instagram URL is set to: " + ChatColor.BLUE + args[2]);
+					if(args[2].startsWith("http://") || args[2].startsWith("https://")){
+					
+						MediaCMD(args[2], player.getName(), "instagram");
+						player.sendMessage(pluginMSG + "Instagram URL is set to: " + ChatColor.BLUE + args[2]);
+						
+						return true;
+					}else{
+						player.sendMessage(pluginUsage + "URL Is Not Valid!");
+						player.sendMessage(pluginUsage + "Example: " + ChatColor.BLUE + "http://google.com");
+						player.sendMessage(pluginUsage + "Example: " + ChatColor.BLUE + "https://google.com");
+						return true;
+					}
+				}
+				
+				/*Steam*/
+				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("steam")){
+					
+					MediaCMD(args[2], player.getName(), "steam");
+					player.sendMessage(pluginMSG + "Steam Name is set to: " + ChatColor.BLUE + args[2]);
 					
 					return true;
-				}else{
+				}
+				
+				/*E-Mail*/
+				else if(args.length == 3 && args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("email")){
+					
+					if(args[2].endsWith(".com") || args[2].endsWith(".nl") || args[2].endsWith(".net") || args[2].endsWith(".org") || args[2].endsWith(".co.uk") || args[2].endsWith(".us") || args[2].endsWith(".be")){
+					
+					MediaCMD(args[2], player.getName(), "email");
+					player.sendMessage(pluginMSG + "E-Mail is set to: " + ChatColor.BLUE + args[2]);
+					
+					return true;
+					}else{
+						player.sendMessage(pluginUsage + "Not A Valid E-Mail!");
+						player.sendMessage(pluginUsage + "Supported: " + ChatColor.BLUE + "'.com', '.nl', '.net', '.org', '.be', '.co.uk', '.us'");
+					}
+				}
+				
+				else{
 					player.sendMessage(pluginUsage + "Usage: /social [playername]");
 					player.sendMessage(pluginUsage + "Usage: /social set [media] [url]");
 					player.sendMessage(pluginUsage + "Usage: /social reset");
 					player.sendMessage(pluginMSG + "---[Media]---");
-					player.sendMessage(pluginMSG + "" + ChatColor.BLUE + "youtube, twitch, twitter, facebook, skype, instagram");
+					player.sendMessage(pluginMSG + "" + ChatColor.BLUE + "youtube, twitch, twitter, facebook, skype, instagram, steam, email");
 					return true;
 				}
 			}else sender.sendMessage(pluginUsage + "Player Command Only!"); return true;
@@ -158,12 +224,14 @@ public class ConnectToSocial extends JavaPlugin{
 			FileWriter fw = new FileWriter(saveTo, true);
 			PrintWriter pw = new PrintWriter(fw);
 			switch(medium){
-			case "youtube": pw.println("Youtube: " + url); break;
-			case "twitch": pw.println("Twitch: " + url); break;
-			case "twitter": pw.println("Twitter: " + url); break;
-			case "facebook": pw.println("Facebook: " + url); break;
-			case "skype": pw.println("Skype: " + url); break;
-			case "instagram": pw.println("Instagram: " + url); break;
+				case "youtube": pw.println("Youtube: " + url); break;
+				case "twitch": pw.println("Twitch: " + url); break;
+				case "twitter": pw.println("Twitter: " + url); break;
+				case "facebook": pw.println("Facebook: " + url); break;
+				case "skype": pw.println("Skype: " + url); break;
+				case "instagram": pw.println("Instagram: " + url); break;
+				case "steam": pw.println("Steam: " + url); break;
+				case "email": pw.println("E-Mail: " + url); break;
 			}
 			pw.flush();
 			pw.close();
