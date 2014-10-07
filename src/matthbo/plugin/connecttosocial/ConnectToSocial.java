@@ -224,14 +224,14 @@ public class ConnectToSocial extends JavaPlugin{
 			FileWriter fw = new FileWriter(saveTo, true);
 			PrintWriter pw = new PrintWriter(fw);
 			switch(medium){
-				case "youtube": pw.println("Youtube: " + url); break;
-				case "twitch": pw.println("Twitch: " + url); break;
-				case "twitter": pw.println("Twitter: " + url); break;
-				case "facebook": pw.println("Facebook: " + url); break;
-				case "skype": pw.println("Skype: " + url); break;
-				case "instagram": pw.println("Instagram: " + url); break;
-				case "steam": pw.println("Steam: " + url); break;
-				case "email": pw.println("E-Mail: " + url); break;
+			case "youtube": pw.println("Youtube: " + url); break;
+			case "twitch": pw.println("Twitch: " + url); break;
+			case "twitter": pw.println("Twitter: " + url); break;
+			case "facebook": pw.println("Facebook: " + url); break;
+			case "skype": pw.println("Skype: " + url); break;
+			case "instagram": pw.println("Instagram: " + url); break;
+			case "steam": pw.println("Steam: " + url); break;
+			case "email": pw.println("E-Mail: " + url); break;
 			}
 			pw.flush();
 			pw.close();
